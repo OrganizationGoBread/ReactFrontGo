@@ -1,0 +1,25 @@
+.sectionSlogan {
+    width: 100%;
+    height: 90vh;
+}
+
+.containerSlogan {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    line-height: 14vh;
+}
+
+.containerSlogan h1 {
+    font-size: 6.5rem;
+    font-weight: 600;
+    color: var(--cor-black);
+}
+
+.containerSlogan h2 {
+    font-size: 6rem;
+    font-weight: 200;
+    color: var(--cor-principal);
+}

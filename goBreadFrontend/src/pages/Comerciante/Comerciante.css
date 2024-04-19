@@ -1,0 +1,295 @@
+@import url('/src/styles/StyleGlobal/style-global.css');
+
+.bannerSlogan{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-banner{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.divisao{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.texto{
+    font-size: 3rem;
+    font-weight: 400;
+    letter-spacing: -1px;
+    color: var(--cor-black);
+}
+
+.access button{
+    padding: 20px 45px;
+    border: none;
+    background-color: var(--cor-white);
+    color: var(--cor-black);
+    border: 1px solid var(--cor-black);
+    font-size: 0.8rem;
+    font-weight: 400;
+    border-radius: 50px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.access button:hover{
+    color: var(--cor-black);
+    border-radius: 0px;
+    transition: 0.5s;
+}
+
+.imgPadeira{
+    width: 80%;
+    align-self: self-end;
+}
+
+/*  */
+
+.sectionVantagens{
+    display: flex;
+    flex-direction: column;
+}
+.containerVantagens{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 120vh;
+}
+.tituloVantagens{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10vh;
+}
+    .titulo{
+        font-size: 2.3rem;
+        font-weight: 500;
+        letter-spacing: -1.5px;
+    }
+    .subTitulo{
+        font-size: 2.3rem;
+        font-weight: 300;
+        letter-spacing: -1.5px;
+    }
+
+.cards{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 70%;
+}
+
+.individualCard{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
+    height: 90%;
+}
+
+.divIcone{
+    width: 100%;
+}
+
+.iconeCard{
+    border: 1px solid var(--cor-sub-letra);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.icons{
+    width: 35%;
+}
+
+.tituloCard{
+    font-size: 1.7rem;
+    font-weight: 400;
+    letter-spacing: -1px;
+}
+
+.textoCard{
+    font-size: 0.9rem;
+    line-height: 25px;
+}
+
+/*  */
+
+.app{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+}
+
+.app-container{
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 600px;
+}
+
+.content-image{
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.content-image img{
+    width: 80%;
+}
+
+.content-title{
+    width: 50%;
+}
+
+.content-circle{
+   margin-top: 1rem;
+   display: flex;
+   align-items: center;
+   gap: 20px;
+}
+
+.circle{
+    border: 1px solid var(--cor-sub-letra);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-title h1{
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--cor-principal);
+}
+
+.content-title .title{
+    margin-bottom: 6rem;
+    font-size: 2.3rem;
+    font-weight: 400;
+    letter-spacing: -1.5px;
+    color: var(--cor-black);
+}
+
+.title .weight{
+    color: var(--cor-principal);
+    font-weight: 600;
+}
+
+.content-title p{
+    color: var(--cor-black);
+    font-size: 1.3rem;
+    line-height: 25px;
+    font-weight: 200;
+    line-height: 30px;
+    letter-spacing: -0.8px;
+}
+
+.content-title span{
+    font-weight: 500;
+}
+
+/*  */
+
+.setaIcon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8rem;
+}
+
+.sectionPersonalize{
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    background-color: var(--cor-principal);
+}
+.containerPersonalize{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.textoPersonalize{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.tituloPersonalize h2{
+    font-size: 2.3rem;
+    font-weight: 400;
+    color: var(--cor-white);
+    margin-bottom: 2rem;
+    letter-spacing: -1.5px;
+}
+
+.content-circle2{
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+ }
+ 
+ .circle2{
+     border: 0.5px solid var(--cor-white);
+     width: 60px;
+     height: 60px;
+     border-radius: 50%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }
+
+ .parag2 p{
+    color: var(--cor-white);
+    font-size: 1.3rem;
+    line-height: 25px;
+    font-weight: 200;
+    line-height: 30px;
+    letter-spacing: -0.8px;
+ }
+
+ .circle2 h1{
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--cor-white);
+ }
+
+.paragrafo{
+    color: var(--cor-white);
+    font-size: 1.5rem;
+    line-height: 30px;
+    font-weight: 200;
+}
+
+.imagemPersonalize{
+    width: 60%;
+}
+.imgPersonalize{
+    width: 110%;
+}
+
+/*  */

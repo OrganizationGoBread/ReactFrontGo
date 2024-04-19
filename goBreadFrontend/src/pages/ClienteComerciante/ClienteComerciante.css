@@ -1,0 +1,89 @@
+@import url('/src/styles/StyleGlobal/style-global.css');
+
+.container-center{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.img-logo{
+    width: 150%;
+}
+
+.container-left-opcao{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    background-color: var(--cor-principal);
+}
+
+.red-size {
+    width: 90%;
+    margin: 5%;
+}
+
+.components {
+    display: flex;
+    flex-direction: column;
+}
+
+.components .button-client {
+    padding-bottom: 30%;
+    padding-top: 35%;
+    display: flex;
+    justify-content: center;
+}
+
+.round-button {
+    display: inline-block;
+    padding: 25px 60px;
+    background-color: var(--cor-principal);
+    color: #fff;
+    border-radius: 100px;
+    border: solid 1px;
+    text-decoration: none;
+    position: relative;
+    transition: 0.5s;
+}
+
+.round-button:nth-child(1):hover {
+    padding: 30px 65px;
+    text-decoration: solid;
+    -webkit-box-shadow: 2px 3px 300px -20px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 3px 300px -20px rgba(0,0,0,0.75);
+    box-shadow: 2px 3px 300px -20px rgba(0,0,0,0.75);
+}
+
+/* .icon {
+    position: absolute;
+    right: 12%;
+    top: 48%;
+    transform: translateY(-50%);
+    width: 10%;
+    height: 30%;
+    background-image: url(../../assets/Icons/setaDireita.svg);
+    background-size: cover;
+} */
+
+.container-right-opcao{
+    width: 50%;
+}
+
+.container-right-opcao .button-client {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#hover2:hover {
+    text-decoration: solid;
+    -webkit-box-shadow: 2px 3px 300px -20px rgba(0,0,0,0.75);
+-moz-box-shadow: 2px 3px 300px -20px rgba(0,0,0,0.75);
+box-shadow: 2px 3px 300px -20px rgba(0,0,0,0.75);
+}
+
+
+
+
+

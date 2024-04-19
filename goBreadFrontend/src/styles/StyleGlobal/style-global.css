@@ -1,0 +1,90 @@
+/* Sempre quando for desenvolver uma tela e criar um CSS, lembre-se de importar esse CSS. Ele é o global */
+
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Sora', sans-serif;
+}
+
+*:after,
+*:before {
+    box-sizing: border-box;
+}
+
+:root {
+    --cor-principal: #EA1D2C;
+    --cor-black: #131D29;
+    --cor-white: #ffffff;
+    --cor-gray: #767676;
+    --cor-opacity-number: #E8E9EA;
+    --cor-opacity-border-bottom: #FDE9EA;
+    --cor-sub-letra: #BDBDBD;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+/* Esse container servirá como margin do nosso projeto, todos os elementos não poderão ultrapassar ele, dessa forma, 
+nosso site estará todo alinhado */
+/* Toda vez que criar uma div ou section, importar essa classe .container para o conteúdo respeitar a margin */
+/* Exemplo: <header id="header">
+----->        <div class="container">      <-------
+                    <div class="content-navbar"> */
+.container {
+    width: 85%;
+    margin: 0 auto;
+    /* border: 1px solid red;  */
+}
+
+body::-webkit-scrollbar {
+    width: 5px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--cor-principal);
+    border-radius: 20px;
+    border: 3px solid var(--cor-principal);
+}
+
+/* Boas práticas
+
+1. px (pixels): 
+
+Use principalmente para elementos de tamanho fixo, como bordas e sombras.
+Evite usar para tamanhos de fonte ou layout, pois não se ajusta bem a diferentes dispositivos e tamanhos de tela.
+
+2. em: 
+
+A unidade "em" é relativa ao tamanho da fonte do elemento pai.Use para tamanhos de fonte quando desejar que 
+o tamanho da fonte seja proporcional ao tamanho da fonte do elemento pai. Útil para criar hierarquia de tamanho de fonte 
+consistente em diferentes partes do site.
+
+3. rem:
+
+A unidade "rem" é relativa ao tamanho da fonte do elemento raiz (normalmente definido no elemento <html>).
+Use para tamanhos de fonte quando desejar que o tamanho da fonte seja proporcional ao tamanho da fonte do elemento raiz.
+Útil para criar layouts consistentes e responsivos em toda a página.
+
+4. % (percentual):
+
+Use principalmente para definir larguras, alturas e posições em relação ao elemento pai.
+Útil para criar layouts fluidos que se ajustam a diferentes tamanhos de tela.
+Útil para tamanho de imagens também.
+
+5. vh (viewport height) e vw (viewport width):
+
+Use "vh" para definir o tamanho de elementos em relação à altura da janela de visualização.
+Use "vw" para definir o tamanho de elementos em relação à largura da janela de visualização.
+Úteis para criar elementos que se ajustam diretamente às dimensões da tela.
+
+*/

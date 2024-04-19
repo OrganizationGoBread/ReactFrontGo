@@ -1,0 +1,114 @@
+.navbar-all-father{
+    width: 100%;
+    height: 12vh;
+    display: flex;
+    background-color: var(--cor-white);
+    border-bottom: 1px solid var(--cor-opacity-number);
+}
+
+.content-menu-access{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-interaction{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    background-color: var(--cor-white);
+    border: 1px solid var(--cor-opacity-number);
+    border-radius: 50px;
+}
+
+.menu-interaction .btn-access{
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    border-radius: 50px;
+    border: none;
+    background-color: var(--cor-white);
+    border: 1.5px solid var(--cor-sub-letra);
+    cursor: pointer;
+}
+
+
+.father-user-info{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.user-info-container{
+    width: 100%;
+    display: flex;
+}
+
+.user-info-form{
+    background-color: var(--cor-white);
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+}
+
+.user-info-form2{
+    background-color: var(--cor-white);
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+}
+
+.user-info-form2 .ipt-info-user{
+    padding: 10px 10px;
+    border: none;
+    border-bottom: 1px solid var(--cor-sub-letra);
+    outline: none;
+    font-weight: 300;
+    width: 100%;
+}
+
+.user-info-form2 label{
+    font-size: 11px;
+    font-weight: 500;
+    color: rgb(87, 87, 87);
+}
+
+.user-info-form .ipt-info-user{
+    padding: 20px 10px;
+    border: none;
+    border-bottom: 1px solid var(--cor-sub-letra);
+    outline: none;
+    font-weight: 300;
+}
+
+.user-actions{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-actions .btn-actions{
+    padding: 10px 30px;
+    border: none;
+    background-color: #3d57ff;
+    color: var(--cor-white);
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.user-actions .btn-actions2{
+    padding: 10px 30px;
+    border: none;
+    background-color: #2aa511;
+    color: var(--cor-white);
+    border-radius: 3px;
+    cursor: pointer;
+}

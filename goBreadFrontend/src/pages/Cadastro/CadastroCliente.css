@@ -1,0 +1,145 @@
+header{
+    width: 100%;
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content{
+    display: flex;
+    justify-content: center;
+}
+
+.content img{
+    width: 8%;
+}
+
+/* Barra de Progresso */
+
+.progress{
+    width: 33.33%;
+    height: 0.800vh;
+    background-color: var(--cor-principal);
+    margin-bottom: 5rem;
+    transition: width 0.3s ease-in-out;
+}
+
+/* Formulário */
+
+.container-form{
+    width: 500px;
+    margin: 0 auto;
+    display: flex;
+}
+
+.centered-content{
+    width: 100%;
+}
+
+/* Paginação, ex: 01 02 03 */
+
+.pagination{
+    display: flex;
+    gap: 50px;
+    margin-bottom: 5rem;
+    cursor: default;
+}
+
+.pagination .active{
+    font-size: 2.8125em;
+    color: var(--cor-black);
+    text-decoration: none !important;
+    border-bottom: solid 5px var(--cor-principal);
+}
+
+.pagination .second,
+.pagination .third,
+.pagination .first  {
+    font-size: 2.8125em;
+    color: var(--cor-opacity-number);
+    text-decoration: none !important;
+    border-bottom: solid 5px var(--cor-opacity-border-bottom);
+}
+
+/* Títulos e Subtítulos */
+
+.titles{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-bottom: 0.5px solid var(--cor-opacity-number);
+    cursor: default;
+}
+
+.titles h3{
+    font-size: 0.875em;
+    color: var(--cor-sub-letra);
+    font-weight: 200;
+    margin-bottom: 1.1rem;
+}
+
+/* Formulário | Inputs */
+
+.form-inputs{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+.form-inputs input{
+    border: none;
+    outline: none;
+    border-bottom: 0.2px solid var(--cor-sub-letra);
+    font-weight: 300;
+    height: 40px;
+}
+
+.form-inputs img{
+    position: absolute;
+    right: 5%;
+    width: 4%;
+    cursor: pointer;
+}
+
+.fieldBetween{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.fieldBetween input{
+    width: 50%;
+}
+
+/* Acessos de Avançar e Retornar */
+
+.access{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.access button{
+    border: none;
+    background-color: var(--cor-white);
+    border: 1px solid var(--cor-black);
+    padding: 18px 40px;
+    border-radius: 50px;
+    font-weight: 600;
+}
+
+#step2, #step3{
+    display: none;
+}
+
+/*  */
+
+.error-message{
+    font-size: 0.75em;
+    color: var(--cor-principal);
+}

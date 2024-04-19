@@ -1,0 +1,196 @@
+.pai{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100vh;
+}
+
+.left-container2{
+    width: 35%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background-color: var(--cor-principal);
+}
+
+.navbar-content2{
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    padding: 30px;
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.208);
+}
+
+.navbar-content2 img {
+    width: 20%;
+}
+
+.image-content2 {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.contentTitle{
+    padding: 30px;
+}
+
+.contentTitle h1{
+    color: var(--cor-white);
+    font-weight: 300;
+}
+
+.contentTitle span{
+    font-weight: 600;
+}
+
+/*  */
+
+.right-side{
+    width: 65%;
+    height: 100vh;
+    overflow-x: auto;
+}
+
+.container-padaria{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 50px;
+    padding: 30px;
+}
+
+.information-card{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.circle-content {
+    display: flex;
+    align-items: center;
+}
+
+.circle-back {
+    border: 1px solid var(--cor-sub-letra);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.title-content p {
+    font-weight: 400;
+    color: var(--black-color);
+}
+
+/*  */
+
+.content-card{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    width: 350px;
+    background-color: var(--cor-white);
+    border-radius: 20px;
+    border: 0.5px solid var(--cor-opacity-number);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+}
+
+.card h2 {
+    font-size: 18px;
+}
+
+.card p {
+    font-size: 14px;
+}
+
+.bakery-form{
+    display: flex;
+    flex-direction: column;
+    padding: 20px 10px;
+    gap: 10px;
+}
+
+.bakery-form h2{
+    font-weight: 400;
+}
+
+.bakery-form .city{
+    font-weight: 300;
+    font-size: 0.70rem;
+}
+
+.bottom{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.bakery-form button{
+    padding: 15px;
+    border: none;
+    background-color: var(--cor-white);
+    color: var(--cor-black);
+    border: 0.5px solid var(--cor-opacity-number);
+    border-radius: 20px;
+    font-size: 0.80em;
+    cursor: pointer;
+    font-weight: 400;
+    transition: 0.3s;
+}
+
+.bottom .circle{
+    background-image: url(../../assets/Icons/🦆\ icon\ _arrow\ left_.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-size: 15px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 0.3px solid var(--cor-opacity-number);
+}
+
+.bakery-form button:hover{
+    border: 0.5px solid var(--cor-black);
+}
+
+.bottom img{
+    width: 4%;
+}
+
+.bottom p{
+    font-weight: 400;
+}
+
+.circleCard{
+    background-image: url(../../assets/Icons/Group.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-size: 15px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 0.3px solid var(--cor-sub-letra);
+}
