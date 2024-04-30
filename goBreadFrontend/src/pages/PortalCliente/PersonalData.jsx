@@ -35,7 +35,7 @@ function PersonalData() {
         async function fetchClienteData() {
             try {
                 const idCliente = sessionStorage.getItem('idCliente');
-                const response = await axios.get(`http://18.212.221.247:8080/clientes/${idCliente}`);
+                const response = await axios.get(`http://52.20.221.176:8080/clientes/${idCliente}`);
                 setClienteData(response.data);
                 console.log(response);
             } catch (error) {
@@ -53,7 +53,7 @@ function PersonalData() {
     const handleSave = async () => {
         try {
             const idCliente = sessionStorage.getItem('idCliente');
-            await axios.put(`http://18.212.221.247:8080/clientes/${idCliente}`, clienteData);
+            await axios.put(`http://52.20.221.176:8080/clientes/${idCliente}`, clienteData);
             toast.success('Informações atualizadas com sucesso!');
             setEditMode(false);
         } catch (error) {
@@ -85,7 +85,7 @@ function PersonalData() {
         if (confirmacao.isConfirmed) {
             try {
                 const idCliente = sessionStorage.getItem('idCliente');
-                await axios.delete(`http://18.212.221.247:8080/clientes/${idCliente}`);
+                await axios.delete(`http://52.20.221.176:8080/clientes/${idCliente}`);
                 toast.success('Conta deletada!');
 
                 setTimeout(() => {

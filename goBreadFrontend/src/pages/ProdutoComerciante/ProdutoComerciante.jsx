@@ -28,7 +28,7 @@ function ProdutoComerciante() {
         const postData = { itensComercio };
 
         try {
-            const response = await axios.post('http://18.212.221.247:8080/itens-comercio', postData);
+            const response = await axios.post('http://52.20.221.176:8080/itens-comercio', postData);
             console.log('Resposta da chamada POST:', response.data);
             toast.success("Itens cadastrados!", {
                 position: "top-right",

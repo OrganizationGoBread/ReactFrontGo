@@ -39,7 +39,7 @@ function Produto() {
     useEffect(() => {
         async function fetchItensPadaria() {
             try {
-                const response = await axios.get(`http://18.212.221.247:8080/itens-comercio/${selectedPadariaId}`);
+                const response = await axios.get(`http://52.20.221.176:8080/itens-comercio/${selectedPadariaId}`);
                 setItensPadaria(response.data);
             } catch (error) {
                 console.error('Erro ao buscar os itens da padaria:', error);
@@ -78,7 +78,7 @@ function Produto() {
         };
 
         try {
-            const response = await axios.post('http://18.212.221.247:8080/pedidos', data);
+            const response = await axios.post('http://52.20.221.176:8080/pedidos', data);
             console.log('Pedido enviado:', response.data);
 
             Swal.fire({
@@ -90,7 +90,7 @@ function Produto() {
                 cancelButtonText: 'Cancelar'
               }).then(async (result) => {
                 if (result.isConfirmed) {
-                  const response = await axios.post('http://18.212.221.247:8080/pedidos/salvar-pedidos', data);
+                  const response = await axios.post('http://52.20.221.176:8080/pedidos/salvar-pedidos', data);
                   if (response.status === 201) {
                     Swal.fire("Pedido finalizado!", "", "success");
                     console.log('Pedido enviado:', response.data);
