@@ -33,7 +33,7 @@ function LoginComerciante() {
             }
         };
 
-        axios.post('http://52.20.221.176:8080/comercios/login', data, config)
+        axios.post('http://52.20.221.176/api/comercios/login', data, config)
             .then((response) => {
                 if (response.status == 200 && response.data?.token) {
                     sessionStorage.setItem('authToken', response.data.token);

@@ -33,7 +33,7 @@ function Login() {
             }
         };
 
-        axios.post('http://52.20.221.176:8080/clientes/login', data, config)
+        axios.post('http://52.20.221.176/api/clientes/login', data, config)
             .then((response) => {
                 if (response.status == 200 && response.data?.token) {
                     sessionStorage.setItem('authToken', response.data.token);

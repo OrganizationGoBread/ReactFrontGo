@@ -25,7 +25,7 @@ function Arquivo() {
     const handleDownload = async () => {
         try {
             const idComercio = sessionStorage.getItem('selectedPadariaId');
-            const response = await axios.get(`http://52.20.221.176:8080/comercios/download/clientes-txt/${idComercio}`, {
+            const response = await axios.get(`http://52.20.221.176/api/comercios/download/clientes-txt/${idComercio}`, {
                 responseType: 'blob',
             });
 
@@ -52,7 +52,7 @@ function Arquivo() {
             const formData = new FormData();
             formData.append('file', selectedFile);
 
-            await axios.post('http://52.20.221.176:8080/comercios/upload/produtos-txt', formData, {
+            await axios.post('http://52.20.221.176/api/comercios/upload/produtos-txt', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

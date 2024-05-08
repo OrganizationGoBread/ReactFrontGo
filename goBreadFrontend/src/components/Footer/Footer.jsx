@@ -7,9 +7,9 @@ import axios from 'axios';
 function Footer() {
 
     function baixarCsv(){
-        axios.get('http://52.20.221.176:8080/comercios/download/clientes-csv')
+        axios.get('http://52.20.221.176/api/comercios/download/clientes-csv')
         .then(res => console.log(res.data),
-        window.location.href = 'http://52.20.221.176:8080/comercios/download/clientes-csv'
+        window.location.href = 'http://52.20.221.176/api/comercios/download/clientes-csv'
         )
         
     }

@@ -24,7 +24,7 @@ function PortalCliente() {
         async function fetchCliente() {
             try {
                 const idCliente = sessionStorage.getItem('idCliente');
-                const response = await axios.get(`http://52.20.221.176:8080/clientes/${idCliente}`);
+                const response = await axios.get(`http://52.20.221.176/api/clientes/${idCliente}`);
                 setCliente(response.data);
                 setLoading(false);
             } catch (error) {
@@ -39,7 +39,7 @@ function PortalCliente() {
         try {
             const confirmed = await showConfirmation();
             if (confirmed) {
-                await axios.delete(`http://52.20.221.176:8080/pedidos/${pedidoId}`);
+                await axios.delete(`http://52.20.221.176/api/pedidos/${pedidoId}`);
                 setCliente(prevCliente => ({
                     ...prevCliente,
                     pedidos: prevCliente.pedidos.filter(pedido => pedido.id !== pedidoId)
@@ -47,7 +47,7 @@ function PortalCliente() {
     
                 const revertConfirmed = await showRevertConfirmation();
                 if (revertConfirmed) {
-                    await axios.post(`http://52.20.221.176:8080/pedidos/reverter-delete`, { pedidoId });
+                    await axios.post(`http://52.20.221.176/api/pedidos/reverter-delete`, { pedidoId });
                     window.location.reload();
                 }
             }
@@ -134,7 +134,7 @@ function PortalCliente() {
             const confirmed = await showRevertAllConfirmation();
             if (confirmed) {
                 const deletedPedidoIds = cliente.pedidos.map(pedido => pedido.id);
-                await axios.post('http://52.20.221.176:8080/pedidos/reverter-delete', { deletedPedidoIds });
+                await axios.post('http://52.20.221.176/api/pedidos/reverter-delete', { deletedPedidoIds });
                 window.location.reload();
             }
         } catch (error) {

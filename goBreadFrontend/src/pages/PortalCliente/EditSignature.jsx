@@ -25,7 +25,7 @@ function EditSignature() {
             return;
         }
 
-        axios.patch(`http://52.20.221.176:8080/clientes/assinatura/${idCliente}?assinatura=${tipoAssinatura}`)
+        axios.patch(`http://52.20.221.176/api/clientes/assinatura/${idCliente}?assinatura=${tipoAssinatura}`)
             .then((response) => {
                 console.log(response);
                 sessionStorage.setItem('tipoAssinatura', tipoAssinatura);
