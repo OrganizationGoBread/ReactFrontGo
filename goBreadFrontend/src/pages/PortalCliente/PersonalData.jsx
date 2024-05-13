@@ -12,6 +12,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Swal from 'sweetalert2';
 
+import api from '../../api/api';
+
 function PersonalData() {
 
     const history = useNavigate();
@@ -35,7 +37,7 @@ function PersonalData() {
         async function fetchClienteData() {
             try {
                 const idCliente = sessionStorage.getItem('idCliente');
-                const response = await axios.get(`http://52.20.221.176/api/clientes/${idCliente}`);
+                const response = await api.get(`/clientes/${idCliente}`);
                 setClienteData(response.data);
                 console.log(response);
             } catch (error) {
@@ -53,7 +55,7 @@ function PersonalData() {
     const handleSave = async () => {
         try {
             const idCliente = sessionStorage.getItem('idCliente');
-            await axios.put(`http://52.20.221.176/api/clientes/${idCliente}`, clienteData);
+            await api.put(`/clientes/${idCliente}`, clienteData);
             toast.success('Informações atualizadas com sucesso!');
             setEditMode(false);
         } catch (error) {
@@ -85,7 +87,7 @@ function PersonalData() {
         if (confirmacao.isConfirmed) {
             try {
                 const idCliente = sessionStorage.getItem('idCliente');
-                await axios.delete(`http://52.20.221.176/api/clientes/${idCliente}`);
+                await api.delete(`/clientes/${idCliente}`);
                 toast.success('Conta deletada!');
 
                 setTimeout(() => {

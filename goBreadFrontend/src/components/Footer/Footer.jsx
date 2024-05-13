@@ -3,13 +3,14 @@ import '../../styles/StyleGlobal/style-global.css';
 import Logo from '../../assets/Icons/Group 16.svg';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import axios from 'axios';
+import api from '../../api/api';
 
 function Footer() {
 
     function baixarCsv(){
-        axios.get('http://52.20.221.176/api/comercios/download/clientes-csv')
+        api.get('/comercios/download/clientes-csv')
         .then(res => console.log(res.data),
-        window.location.href = 'http://52.20.221.176/api/comercios/download/clientes-csv'
+        window.location.href = '/comercios/download/clientes-csv'
         )
         
     }

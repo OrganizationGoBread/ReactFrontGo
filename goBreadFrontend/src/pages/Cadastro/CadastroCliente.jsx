@@ -17,6 +17,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
+import api from '../../api/api';
+
 function CadastroCliente() {
     const history = useNavigate();
 
@@ -109,7 +111,7 @@ function CadastroCliente() {
     };
 
     const addRegister = async (e) => {
-        axios.post('http://52.20.221.176/api/clientes/cadastrar', formData, config)
+        api.post('/clientes/cadastrar', formData, config)
             .then((response) => {
                 if (response.status == 201 && response.data?.id) {
                     sessionStorage.setItem('idCliente', response.data.id);

@@ -11,6 +11,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
 
+import api from '../../api/api';
+
 function Arquivo() {
 
     const history = useNavigate();
@@ -25,7 +27,7 @@ function Arquivo() {
     const handleDownload = async () => {
         try {
             const idComercio = sessionStorage.getItem('selectedPadariaId');
-            const response = await axios.get(`http://52.20.221.176/api/comercios/download/clientes-txt/${idComercio}`, {
+            const response = await api.get(`/comercios/download/clientes-txt/${idComercio}`, {
                 responseType: 'blob',
             });
 
@@ -52,7 +54,7 @@ function Arquivo() {
             const formData = new FormData();
             formData.append('file', selectedFile);
 
-            await axios.post('http://52.20.221.176/api/comercios/upload/produtos-txt', formData, {
+            await api.post('/comercios/upload/produtos-txt', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

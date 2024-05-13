@@ -9,6 +9,10 @@ import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import '../../api/api'
+import api from '../../api/api';
+
+
 function LoginComerciante() {
 
     const navigation = useNavigate(); 
@@ -33,7 +37,7 @@ function LoginComerciante() {
             }
         };
 
-        axios.post('http://52.20.221.176/api/comercios/login', data, config)
+        api.post('/comercios/login', data, config)
             .then((response) => {
                 if (response.status == 200 && response.data?.token) {
                     sessionStorage.setItem('authToken', response.data.token);

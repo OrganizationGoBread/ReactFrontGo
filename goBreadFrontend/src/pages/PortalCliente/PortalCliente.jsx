@@ -13,6 +13,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
 
+import api from '../../api/api';
+
 function PortalCliente() {
     const history = useNavigate();
 
@@ -24,7 +26,7 @@ function PortalCliente() {
         async function fetchCliente() {
             try {
                 const idCliente = sessionStorage.getItem('idCliente');
-                const response = await axios.get(`http://52.20.221.176/api/clientes/${idCliente}`);
+                const response = await api.get(`/clientes/${idCliente}`);
                 setCliente(response.data);
                 setLoading(false);
             } catch (error) {
@@ -39,7 +41,7 @@ function PortalCliente() {
         try {
             const confirmed = await showConfirmation();
             if (confirmed) {
-                await axios.delete(`http://52.20.221.176/api/pedidos/${pedidoId}`);
+                await api.delete(`/pedidos/${pedidoId}`);
                 setCliente(prevCliente => ({
                     ...prevCliente,
                     pedidos: prevCliente.pedidos.filter(pedido => pedido.id !== pedidoId)
@@ -47,7 +49,7 @@ function PortalCliente() {
     
                 const revertConfirmed = await showRevertConfirmation();
                 if (revertConfirmed) {
-                    await axios.post(`http://52.20.221.176/api/pedidos/reverter-delete`, { pedidoId });
+                    await api.post(`/pedidos/reverter-delete`, { pedidoId });
                     window.location.reload();
                 }
             }
@@ -134,7 +136,7 @@ function PortalCliente() {
             const confirmed = await showRevertAllConfirmation();
             if (confirmed) {
                 const deletedPedidoIds = cliente.pedidos.map(pedido => pedido.id);
-                await axios.post('http://52.20.221.176/api/pedidos/reverter-delete', { deletedPedidoIds });
+                await api.post('/pedidos/reverter-delete', { deletedPedidoIds });
                 window.location.reload();
             }
         } catch (error) {

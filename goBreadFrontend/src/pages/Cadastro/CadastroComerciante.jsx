@@ -17,6 +17,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Link, createPath } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
+import api from '../../api/api';
+
 function CadastroComerciante() {
     const history = useNavigate();
 
@@ -111,7 +113,7 @@ function CadastroComerciante() {
     };
 
     const addRegister = async (e) => {
-        axios.post('http://52.20.221.176/api/comercios/cadastrar', formData, config)
+        api.post('/comercios/cadastrar', formData, config)
             .then((response) => {
                 if(response.status == 201 && response.data?.id){
                     sessionStorage.setItem('idComerciante', response.data.id);

@@ -6,6 +6,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 
+import api from '../../api/api';
+
 function ProdutoComerciante() {
 
     const history = useNavigate();
@@ -28,7 +30,7 @@ function ProdutoComerciante() {
         const postData = { itensComercio };
 
         try {
-            const response = await axios.post('http://52.20.221.176/api/itens-comercio', postData);
+            const response = await api.post('/itens-comercio', postData);
             console.log('Resposta da chamada POST:', response.data);
             toast.success("Itens cadastrados!", {
                 position: "top-right",

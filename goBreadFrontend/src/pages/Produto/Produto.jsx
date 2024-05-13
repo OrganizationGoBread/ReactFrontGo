@@ -9,6 +9,8 @@ import axios from 'axios';
 import CardProduto from '../../components/ProdutoComponent/ProdutoComponent';
 import Swal from 'sweetalert2'
 
+import api from '../../api/api';
+
 function Produto() {
     
     const Navigation = useNavigate(); 
@@ -39,7 +41,7 @@ function Produto() {
     useEffect(() => {
         async function fetchItensPadaria() {
             try {
-                const response = await axios.get(`http://52.20.221.176/api/itens-comercio/${selectedPadariaId}`);
+                const response = await api.get(`/itens-comercio/${selectedPadariaId}`);
                 setItensPadaria(response.data);
             } catch (error) {
                 console.error('Erro ao buscar os itens da padaria:', error);
@@ -78,7 +80,7 @@ function Produto() {
         };
 
         try {
-            const response = await axios.post('http://52.20.221.176/api/pedidos', data);
+            const response = await api.post('/pedidos', data);
             console.log('Pedido enviado:', response.data);
 
             Swal.fire({
@@ -90,7 +92,7 @@ function Produto() {
                 cancelButtonText: 'Cancelar'
               }).then(async (result) => {
                 if (result.isConfirmed) {
-                  const response = await axios.post('http://52.20.221.176/api/pedidos/salvar-pedidos', data);
+                  const response = await api.post('/pedidos/salvar-pedidos', data);
                   if (response.status === 201) {
                     Swal.fire("Pedido finalizado!", "", "success");
                     console.log('Pedido enviado:', response.data);

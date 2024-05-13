@@ -8,6 +8,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import BakeryCard from '../../components/BakeryCard/BakeryCard';
 
+import api from '../../api/api';
+
 function Padaria() {
 
     const [padarias, setPadarias] = useState([]);
@@ -17,7 +19,7 @@ function Padaria() {
         const bairroAtual = sessionStorage.getItem('bairro');
       
         if (bairroAtual) {
-          axios.get('http://52.20.221.176/api/comercios/bairro', {
+          api.get('/comercios/bairro', {
             params: {
               bairro: bairroAtual
             }

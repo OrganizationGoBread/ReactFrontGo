@@ -12,6 +12,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
+import '../../api/api';
+import api from '../../api/api';
+
 function Assinatura() {
     const history = useNavigate();
 
@@ -25,7 +28,7 @@ function Assinatura() {
             return;
         }
 
-        axios.patch(`http://52.20.221.176/api/clientes/assinatura/${idCliente}?assinatura=${tipoAssinatura}`)
+        api.patch(`/clientes/assinatura/${idCliente}?assinatura=${tipoAssinatura}`)
             .then((response) => {
                 console.log(response);
                 sessionStorage.setItem('tipoAssinatura', tipoAssinatura);

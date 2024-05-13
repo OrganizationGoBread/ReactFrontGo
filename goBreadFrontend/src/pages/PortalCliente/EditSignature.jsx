@@ -13,6 +13,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+import api from '../../api/api';
+
 function EditSignature() {
     const history = useNavigate();
     const [tipoAssinatura, setTipoAssinatura] = useState();
@@ -25,7 +27,7 @@ function EditSignature() {
             return;
         }
 
-        axios.patch(`http://52.20.221.176/api/clientes/assinatura/${idCliente}?assinatura=${tipoAssinatura}`)
+        api.patch(`/clientes/assinatura/${idCliente}?assinatura=${tipoAssinatura}`)
             .then((response) => {
                 console.log(response);
                 sessionStorage.setItem('tipoAssinatura', tipoAssinatura);

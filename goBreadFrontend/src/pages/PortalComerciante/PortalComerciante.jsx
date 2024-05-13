@@ -11,6 +11,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
 
+import api from '../../api/api';
+
 function PortalComerciante() {
     const history = useNavigate();
 
@@ -22,7 +24,7 @@ function PortalComerciante() {
         async function fetchComercioData() {
             try {
                 const idPadaria = sessionStorage.getItem('selectedPadariaId');
-                const response = await axios.get(`http://52.20.221.176/api/comercios/${idPadaria}`);
+                const response = await api.get(`/comercios/${idPadaria}`);
                 setComercioData(response.data);
                 setLoading(false);
             } catch (error) {
@@ -37,7 +39,7 @@ function PortalComerciante() {
         try {
             const confirmed = await showConfirmation();
             if (confirmed) {
-                await axios.delete(`http://52.20.221.176/api/pedidos/${pedidoId}`);
+                await api.delete(`/pedidos/${pedidoId}`);
                 setCliente(prevCliente => ({
                     ...prevCliente,
                     pedidos: prevCliente.pedidos.filter(pedido => pedido.id !== pedidoId)
@@ -45,7 +47,7 @@ function PortalComerciante() {
 
                 const revertConfirmed = await showRevertConfirmation();
                 if (revertConfirmed) {
-                    await axios.post(`http://52.20.221.176/api/pedidos/reverter-delete`, { pedidoId });
+                    await api.post(`/pedidos/reverter-delete`, { pedidoId });
                     window.location.reload();
                 }
             }
