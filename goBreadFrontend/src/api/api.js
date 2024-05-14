@@ -7,7 +7,7 @@ const ip = {
 
 const api = axios.create({
     baseURL: `http://${ip.ec2}/api`,
-    timeout: 2000,
+    timeout: 8000,
 });
 
 export default api
