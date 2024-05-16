@@ -10,10 +10,10 @@ function NavbarComercinte() {
 
     const history = useNavigate();
 
-    window.addEventListener("scroll", function () {
-        var header = document.querySelector(".father-navbar-comerciante");
-        header.classList.toggle("sticky", window.scrollY > 0);
-    });
+    // window.addEventListener("scroll", function () {
+    //     var header = document.querySelector(".father-navbar-comerciante");
+    //     header.classList.toggle("sticky", window.scrollY > 0);
+    // });
 
     return (
         <>
