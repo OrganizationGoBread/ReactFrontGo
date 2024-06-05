@@ -86,6 +86,93 @@ function PortalComerciante() {
         return revertResult.isConfirmed;
     };
 
+
+    const showPedidoDetails = (pedido) => {
+        Swal.fire({
+            // title: `Detalhes do Pedido ${pedido.id}`,
+            html: `
+                <div style="width: 100%; margin-bottom: 20px; display: flex; text-align: start; margin-top: 8px;">
+                    <h3 style="color: black; letter-spacing: -1; font-weight: 600;">Pedido: ${pedido.id}</h3>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                    <div style="text-align: start;">
+                        <h5 style="margin-bottom: 20px; font-weight: 600; letter-spacing: -1;">Produto</h5>
+                        <ul style="list-style-type: none; display: flex; flex-direction: column; gap: 8px;">
+                            ${pedido.itensPedido.map(item => `
+                                <li style="font-size: 14px; font-weight: 300;">
+                                    ${item.produto.nome}
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                    <div style="text-align: end;">
+                        <h5 style="margin-bottom: 20px; font-weight: 600; letter-spacing: -1;">Quantidade</h5>
+                        <ul style="list-style-type: none; display: flex; flex-direction: column; gap: 8px;">
+                            ${pedido.itensPedido.map(item => `
+                                <li style="font-size: 14px; font-weight: 300;">
+                                    ${item.quantidade}
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                </div>
+                <hr style="border: 0; border-top: 1px solid #ddd; margin: 20px 0;">
+                <div style="display: flex; justify-content: space-between;">
+                    <div style="text-align: start;">
+                        <h5 style="margin-bottom: 10px; font-weight: 600; letter-spacing: -1;">Faça a entrega em:</h5>
+                        <p style="font-size: 14px; font-weight: 300;">${pedido.cliente.endereco.rua}, ${pedido.cliente.endereco.numero} - ${pedido.cliente.endereco.bairro}</p>
+                    </div>
+                    <div style="text-align: end;">
+                        <h5 style="margin-bottom: 10px; font-weight: 600; letter-spacing: -1;">Horário</h5>
+                        <p style="font-size: 14px; font-weight: 300;">${pedido.horarioEntrega}</p>
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin: 20px 0;">
+                    <div style="text-align: start;">
+                        <h5 style="margin-bottom: 10px; font-weight: 600; letter-spacing: -1;">Dia da entrega</h5>
+                        <p style="font-size: 14px; font-weight: 300;">${pedido.diaEntrega}</p>
+                    </div>
+                    <div style="text-align: start;">
+                        <h5 style="margin-bottom: 10px; font-weight: 600; letter-spacing: -1;">Complemento</h5>
+                        <p style="font-size: 14px; font-weight: 300;">${pedido.cliente.endereco.complemento}</p>
+                    </div>
+                    <div style="text-align: end;">
+                        <h5 style="margin-bottom: 10px; font-weight: 600; letter-spacing: -1;">CEP</h5>
+                        <p style="font-size: 14px; font-weight: 300;">${pedido.cliente.endereco.cep}</p>
+                    </div>
+                </div>
+                <hr style="border: 0; border-top: 1px solid #ddd; margin: 20px 0;">
+                <div style="display: flex; justify-content: space-between; margin: 20px 0;">
+                    <div style="text-align: start;">
+                        <h5 style="margin-bottom: 10px; font-weight: 600; letter-spacing: -1;">Cliente</h5>
+                        <p style="font-size: 14px; font-weight: 300;">${pedido.cliente.nome}</p>
+                    </div>
+                    <div style="text-align: end;">
+                        <h5 style="margin-bottom: 10px; font-weight: 600; letter-spacing: -1;">CPF</h5>
+                        <p style="font-size: 14px; font-weight: 300;">${pedido.cliente.cpf}</p>
+                    </div>
+                    <div style="text-align: end;">
+                        <h5 style="margin-bottom: 10px; font-weight: 600; letter-spacing: -1;">Telefone</h5>
+                        <p style="font-size: 14px; font-weight: 300;">${pedido.cliente.telefone}</p>
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin: 20px 0;">
+                    <div style="text-align: start;">
+                        <h5 style="margin-bottom: 10px; font-weight: 600; letter-spacing: -1;">Email</h5>
+                        <p style="font-size: 14px; font-weight: 300;">${pedido.cliente.email}</p>
+                    </div>
+                    <div style="text-align: end;">
+                        <h5 style="margin-bottom: 10px; font-weight: 600; letter-spacing: -1;">Identificador</h5>
+                        <p style="font-size: 14px; font-weight: 300;">${pedido.cliente.id}</p>
+                    </div>
+                </div>
+            `,
+            confirmButtonText: 'Fechar'
+        });
+    };
+
+
     function renderTable() {
         if (loading) {
             return <p>Carregando...</p>;
@@ -96,31 +183,29 @@ function PortalComerciante() {
                 <thead>
                     <tr>
                         <th>Nº Pedido</th>
-                        <th>Produto</th>
-                        <th>Quantidade</th>
+                        <th>Produtos</th>
                         <th>Cliente</th>
-                        <th>Telefone</th>
-                        <th>Endereço Cliente</th>
-                        <th>Horário</th>
+                        <th>Endereço de Entrega</th>
+                        <th>Dia da Entrega</th>
+                        <th>Horário da Entrega</th>
                         <th>Complemento</th>
                         <th>CEP</th>
                     </tr>
                 </thead>
                 <tbody>
-                {comercioData.pedidos.map((pedido, indexPedido) => (
-                        pedido.itensPedido.map((item, indexItem) => (
-                            <tr key={`${pedido.id}-${indexItem}`}>
-                                <td>{pedido.id}</td>
-                                <td>{item.produto.nome}</td>
-                                <td>{item.quantidade}</td>
-                                <td>{pedido.cliente.nome}</td>
-                                <td>{pedido.cliente.telefone}</td>
-                                <td>{pedido.cliente.endereco.rua}, {pedido.cliente.endereco.numero} - {pedido.cliente.endereco.bairro}</td>
-                                <td>{pedido.horarioEntrega}</td>
-                                <td>{pedido.cliente.endereco.complemento}</td>
-                                <td>{pedido.cliente.endereco.cep}</td>
-                            </tr>
-                        ))
+                    {comercioData.pedidos.map(pedido => (
+                        <tr key={pedido.id} onClick={() => showPedidoDetails(pedido)} style={{ cursor: 'pointer' }}>
+                            <td>{pedido.id}</td>
+                            <td>
+                                <button className="btn-details" onClick={() => showPedidoDetails(pedido)}>Ver Produtos</button>
+                            </td>
+                            <td>{pedido.cliente.nome}</td>
+                            <td>{pedido.cliente.endereco.rua}, {pedido.cliente.endereco.numero} - {pedido.cliente.endereco.bairro}</td>
+                            <td>{pedido.diaEntrega}</td>
+                            <td>{pedido.horarioEntrega}</td>
+                            <td>{pedido.cliente.endereco.complemento}</td>
+                            <td>{pedido.cliente.endereco.cep}</td>
+                        </tr>
                     ))}
                 </tbody>
             </table>

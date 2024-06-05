@@ -20,6 +20,7 @@ function PortalCliente() {
 
     const [cliente, setCliente] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [selectedPedido, setSelectedPedido] = useState(null);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -102,33 +103,37 @@ function PortalCliente() {
                 <thead>
                     <tr>
                         <th>Nº Pedido</th>
-                        <th>Produto</th>
-                        <th>Quantidade</th>
                         <th>Dia da Entrega</th>
                         <th>Horário</th>
-                        <th>Padaria</th>
+                        <th>Estabelecimento</th>
+                        <th>Detalhes da Compra</th>
+                        <th>Código de Verificação</th>
                         <th>Deletar</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {cliente.pedidos.map((pedido, indexPedido) => (
-                        pedido.itensPedido.map((item, indexItem) => (
-                            <tr key={`${pedido.id}-${indexItem}`}>
-                                <td>{pedido.id}</td>
-                                <td>{item.produto.nome}</td>
-                                <td>{item.quantidade}</td>
-                                <td>{pedido.diaEntrega}</td>
-                                <td>{pedido.horarioEntrega}</td>
-                                <td>{pedido.comercio.razaoSocial}</td>
-                                <td>
-                                    <button className="btn-deletar" onClick={() => handleDeletePedido(pedido.id)}><img src={deletar} alt="" /></button>
-                                </td>
-                            </tr>
-                        ))
+                    {cliente.pedidos.map((pedido) => (
+                        <tr key={pedido.id}>
+                            <td>{pedido.id}</td>
+                            <td>{pedido.diaEntrega}</td>
+                            <td>{pedido.horarioEntrega}</td>
+                            <td>{pedido.comercio.razaoSocial}</td>
+                            <td>
+                                <button className="btn-details" onClick={() => handleShowDetails(pedido)}>Ver Detalhes</button>
+                            </td>
+                            <td>{pedido.codigoVerificacao}</td>
+                            <td>
+                                <button className="btn-deletar" onClick={() => handleDeletePedido(pedido.id)}><img src={deletar} alt="" /></button>
+                            </td>
+                        </tr>
                     ))}
                 </tbody>
             </table>
         );
+    }
+
+    function handleShowDetails(pedido) {
+        setSelectedPedido(pedido);
     }
 
     async function handleRevertAllDeleted() {
@@ -158,6 +163,67 @@ function PortalCliente() {
 
         return revertAllResult.isConfirmed;
     };
+
+    useEffect(() => {
+        if (selectedPedido) {
+            Swal.fire({
+                // title: `Detalhes do Pedido ${selectedPedido.id}`,
+                html: `
+                <div style="width: 100%; margin-bottom: 20px; display: flex; text-align: start; margin-top: 8px;">
+                    <h3 style="color: black; letter-spacing: -1; font-weight: 600;">Pedido: ${selectedPedido.id}</h3>
+                </div>
+                <hr style="border: 0; border-top: 1px solid #ddd; margin: 20px 0;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                    <div style="text-align: start;">
+                        <h5 style="margin-bottom: 20px; font-weight: 600; letter-spacing: -1;">Produto</h5>
+                        <ul style="list-style-type: none; display: flex; flex-direction: column; gap: 8px;">
+                            ${selectedPedido.itensPedido.map(item => `
+                                <li style="font-size: 14px; font-weight: 300;">
+                                    ${item.produto.nome}
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                    <div style="text-align: end;">
+                        <h5 style="margin-bottom: 20px; font-weight: 600; letter-spacing: -1;">Quantidade</h5>
+                        <ul style="list-style-type: none; display: flex; flex-direction: column; gap: 8px;">
+                            ${selectedPedido.itensPedido.map(item => `
+                                <li style="font-size: 14px; font-weight: 300;">
+                                    ${item.produto.valorPorcao}
+                                    ${item.produto.tipoPorcao}
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                </div>
+                <hr style="border: 0; border-top: 1px solid #ddd; margin: 20px 0;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                    <div style="text-align: start;">
+                        <h5 style="margin-bottom: 10px; font-weight: 600; letter-spacing: -1;">Receba em:</h5>
+                        <p style="font-size: 14px; font-weight: 300;">${cliente.endereco.rua}, ${cliente.endereco.numero}</p>
+                    </div>
+                    <div style="text-align: end;">
+                        <h5 style="margin-bottom: 10px; font-weight: 600; letter-spacing: -1;">Horário</h5>
+                        <p style="font-size: 14px; font-weight: 300;">${selectedPedido.horarioEntrega}</p>
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                    <div style="text-align: start;">
+                        <h5 style="margin-bottom: 10px; font-weight: 600; letter-spacing: -1;">Padaria do Pedido</h5>
+                        <p style="font-size: 14px; font-weight: 300;">${selectedPedido.comercio.razaoSocial}</p>
+                    </div>
+                    <div style="text-align: end;">
+                        <h5 style="margin-bottom: 10px; font-weight: 600; letter-spacing: -1;">Status</h5>
+                        <p style="font-size: 14px; font-weight: 300;">${selectedPedido.status}</p>
+                    </div>
+                </div>
+                `,
+                confirmButtonText: 'Fechar'
+            }).then(() => {
+                setSelectedPedido(null);
+            });
+        }
+    }, [selectedPedido]);
 
     return (
         <>

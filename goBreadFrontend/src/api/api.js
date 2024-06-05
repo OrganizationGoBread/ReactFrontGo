@@ -1,12 +1,12 @@
 import axios from "axios";
 
 const ip = {
-    local: "localhost",
+    local: "localhost:8080",
     ec2: "52.20.221.176" 
 }
 
 const api = axios.create({
-    baseURL: `http://${ip.ec2}/api`,
+    baseURL: `http://${ip.local}/api`,
     timeout: 8000,
 });
 
